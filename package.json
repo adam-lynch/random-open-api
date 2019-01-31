@@ -1,0 +1,18 @@
+{
+  "name": "random-open-api",
+  "version": "1.0.0",
+  "description": "A Twitter bot that tweets about a random open API on a schedule. See twitter.com/randomOpenAPI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["twitter", "bot", "api", "open", "open-api", "serverelss", "public", "open-data"],
+  "author": "Adam Lynch <contact@adamlynch.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "camelcase": "^5.0.0",
+    "twitter-lite": "^0.9.1"
+  },
+  "devDependencies": {}
+}
