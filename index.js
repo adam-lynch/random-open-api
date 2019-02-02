@@ -33,7 +33,7 @@ module.exports = (req, res) => { // Zeit boilerplate
 
         tweet += ` ${api.Link} `;
 
-        const tags = ['openApi', 'api', formatHashtag(api.Category)];
+        const tags = ['openAPI', 'api', formatHashtag(api.Category)];
         if(isDescriptionShort){
             tags.push(formatHashtag(api.Description));
         }
