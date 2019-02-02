@@ -15,23 +15,23 @@ const formatHashtag = (text) => {
 };
 
 module.exports = (req, res) => { // Zeit boilerplate
-    axios.get('https://api.publicapis.org/random')
+    axios.get('https://api.publicapis.org/entries?auth=null')
     .then((response) => {
         if(!response.data.entries.length){
-            res.end('Error: No APIs found');
+            throw new Error('No APIs found');
         }
 
-        // Build tweet content
-        const api = response.data.entries[0];
+        // Build tweet content from random result
+        const api = response.data.entries[Math.floor(Math.random() * response.data.entries.length)];
         const isDescriptionShort = api.Description.split(' ').length <= 2;
         let tweet = `📡 Random Open API 📡\n\n${api.API}`; // .API is the name of the API
 
         // If the description is too short, it's shown as a hashtag later instead
         if(!isDescriptionShort){
-            tweet += `: ${api.Description} `;
+            tweet += `: ${api.Description}`;
         }
 
-        tweet += `${api.Link} `;
+        tweet += ` ${api.Link} `;
 
         const tags = ['openApi', 'api', formatHashtag(api.Category)];
         if(isDescriptionShort){
